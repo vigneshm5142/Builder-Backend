@@ -17,7 +17,7 @@ router.post("/signin", SignIn);
 router.get("/", userVerification);
 
 // Appointment related routes
-router.post("/appointment/:websiteId", AddAppointment);
+router.post("/appointment", AddAppointment);
 router.get("/appointments", getAllAppointments);
 router.get("/appointments/:websiteId", getAppointmentByWebsiteId);
 
