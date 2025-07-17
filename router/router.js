@@ -7,6 +7,7 @@ const {
   getAppointmentByWebsiteId,
 } = require("../controllers/getAppointmentByWebsiteId");
 const { uploadImageOrVideo } = require("../controllers/uploadImageOrVideo");
+const { getAllMedias } = require("../controllers/getAllMedias");
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.get("/appointments", getAllAppointments);
 router.get("/appointments/:websiteId", getAppointmentByWebsiteId);
 
 router.post("/media/upload", uploadImageOrVideo);
+router.get("/medias", getAllMedias);
 
 module.exports = router;

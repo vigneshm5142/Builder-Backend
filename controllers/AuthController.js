@@ -35,7 +35,11 @@ module.exports.Signup = async (req, res, next) => {
     });
     res
       .status(STATUS_CREATED)
-      .json({ message: "User signed up successfully", success: true, user });
+      .json({
+        message: "User signed up successfully",
+        success: true,
+        user: newUser,
+      });
     next();
   } catch (error) {
     res.status(STATUS_INTERNAL_SERVER_ERROR).json({ message: error });
