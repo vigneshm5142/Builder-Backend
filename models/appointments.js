@@ -7,7 +7,7 @@ const AppointmentEntrySchema = new mongoose.Schema({
 });
 
 const AppointmentSchema = new mongoose.Schema({
-  websiteId: { type: String, required: true },
+  websiteId: { type: String },
   name: { type: String, required: true },
   phone: { type: String, required: true },
   email: { type: String, required: true },

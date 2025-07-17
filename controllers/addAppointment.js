@@ -9,18 +9,9 @@ const Website = require("../models/website");
 
 module.exports.AddAppointment = async (req, res) => {
   try {
-    const websiteId = req.params.websiteId;
     const { name, email, phone, day, time } = req.body;
 
-    const websiteExists = await Website.findOne({ _id: websiteId });
-
-    if (!websiteExists) {
-      res
-        .status(STATUS_NOT_FOUND)
-        .json({ message: "Website not found with this websiteId" });
-    }
-
-    const userAppointment = await Appointments.findOne({ email, websiteId });
+    const userAppointment = await Appointments.findOne({ email });
 
     if (userAppointment) {
       userAppointment.appointments.push({ day, time });
@@ -33,7 +24,6 @@ module.exports.AddAppointment = async (req, res) => {
       });
     } else {
       const newAppointment = new Appointments({
-        websiteId,
         name,
         phone,
         email,
